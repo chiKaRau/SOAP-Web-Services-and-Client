@@ -1,8 +1,6 @@
 # SOAP-Web-Services-and-Client
 
-## This is a app which using SOAP Web Services and Client 
-
-## and using WildFly 27+ JAVA 17
+## This is a app which using SOAP Web Services and Client and using WildFly 27+ and JAVA 17
 
 ## Score and ScoreServices is the Web Services using JAX-WS (Annotation)
 
