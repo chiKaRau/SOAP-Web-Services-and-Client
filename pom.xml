@@ -1,0 +1,163 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>soap-ws-example</groupId>
+	<artifactId>soap-ws-example</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<dependencies>
+		<!-- Jakarta Web Services Metadata -->
+		<dependency>
+			<groupId>jakarta.jws</groupId>
+			<artifactId>jakarta.jws-api</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+
+		<!-- Jakarta Enterprise Beans -->
+		<dependency>
+			<groupId>jakarta.ejb</groupId>
+			<artifactId>jakarta.ejb-api</artifactId>
+			<version>3.2.6</version>
+		</dependency>
+
+		<!-- Jakarta XML Binding API -->
+		<dependency>
+			<groupId>jakarta.xml.bind</groupId>
+			<artifactId>jakarta.xml.bind-api</artifactId>
+			<version>4.0.2</version>
+		</dependency>
+
+		<!-- Jakarta XML Web Services API -->
+		<dependency>
+			<groupId>jakarta.xml.ws</groupId>
+			<artifactId>jakarta.xml.ws-api</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+
+		<!-- Jakarta Platform API -->
+		<dependency>
+			<groupId>jakarta.platform</groupId>
+			<artifactId>jakarta.jakartaee-api</artifactId>
+			<version>8.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- JAX-WS RI Bundle -->
+		<dependency>
+			<groupId>com.sun.xml.ws</groupId>
+			<artifactId>jaxws-ri</artifactId>
+			<version>3.0.2</version>
+			<type>pom</type>
+		</dependency>
+
+		<!-- JAX-WS Runtime -->
+		<dependency>
+			<groupId>com.sun.xml.ws</groupId>
+			<artifactId>rt</artifactId>
+			<version>3.0.2</version>
+		</dependency>
+
+		<!-- JAXB Runtime -->
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>4.0.0</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Apache HttpClient for sending HTTP requests -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.13</version> <!-- Use the latest version available -->
+		</dependency>
+
+		<!-- Apache HttpCore, usually included by httpclient, but just in case -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.4.14</version> <!-- Use the latest version available -->
+		</dependency>
+
+		<!-- Commons Logging for logging support within Apache HttpClient -->
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<!-- Others -->
+
+		<dependency>
+			<groupId>org.jvnet.staxex</groupId>
+			<artifactId>stax-ex</artifactId>
+			<version>1.8.3</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<release>17</release>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.2.3</version>
+			</plugin>
+
+			<plugin>
+				<groupId>com.sun.xml.ws</groupId>
+				<artifactId>jaxws-maven-plugin</artifactId>
+				<version>4.0.1</version>
+				<executions>
+					<execution>
+						<id>generate-client-from-wsdl-file</id> <!-- Unique ID
+						for the first execution -->
+						<goals>
+							<goal>wsimport</goal>
+						</goals>
+						<configuration>
+							<wsdlFiles>
+								<wsdlFile>
+									${basedir}/src/wsdl/ScoreServiceService.wsdl</wsdlFile>
+							</wsdlFiles>
+							<packageName>com.example.client.score</packageName>
+							<sourceDestDir>
+								${project.build.directory}/generated-sources/jaxws-wsimport</sourceDestDir>
+							<bindingDirectory>${basedir}/src/wsdl</bindingDirectory>
+							<staleFile>
+								${project.build.directory}/jaxws/stale/wsimport.stale</staleFile>
+						</configuration>
+					</execution>
+					<execution>
+						<id>generate-client-from-external-wsdl</id> <!-- Unique
+						ID for the second execution -->
+						<goals>
+							<goal>wsimport</goal>
+						</goals>
+						<configuration>
+							<wsdlUrls>
+								<wsdlUrl>
+									https://www.dataaccess.com/webservicesserver/NumberConversion.wso?WSDL</wsdlUrl>
+							</wsdlUrls>
+							<packageName>com.example.client.currency</packageName> <!--
+							Change the package name here -->
+							<sourceDestDir>
+								${project.build.directory}/generated-sources/jaxws-wsimport</sourceDestDir>
+							<bindingDirectory>${basedir}/src/wsdl</bindingDirectory>
+							<staleFile>
+								${project.build.directory}/jaxws/stale/wsimport.stale</staleFile>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>

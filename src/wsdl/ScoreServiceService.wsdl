@@ -1,0 +1,360 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://example.ws.mcnz.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="ScoreServiceService" targetNamespace="http://example.ws.mcnz.com/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://example.ws.mcnz.com/" elementFormDefault="unqualified" targetNamespace="http://example.ws.mcnz.com/" version="1.0">
+
+  <xs:element name="getLosses" type="tns:getLosses"/>
+
+  <xs:element name="getLossesResponse" type="tns:getLossesResponse"/>
+
+  <xs:element name="getScore" type="tns:getScore"/>
+
+  <xs:element name="getScoreResponse" type="tns:getScoreResponse"/>
+
+  <xs:element name="getTies" type="tns:getTies"/>
+
+  <xs:element name="getTiesResponse" type="tns:getTiesResponse"/>
+
+  <xs:element name="getWins" type="tns:getWins"/>
+
+  <xs:element name="getWinsResponse" type="tns:getWinsResponse"/>
+
+  <xs:element name="increaseLosses" type="tns:increaseLosses"/>
+
+  <xs:element name="increaseLossesResponse" type="tns:increaseLossesResponse"/>
+
+  <xs:element name="increaseTies" type="tns:increaseTies"/>
+
+  <xs:element name="increaseTiesResponse" type="tns:increaseTiesResponse"/>
+
+  <xs:element name="increaseWins" type="tns:increaseWins"/>
+
+  <xs:element name="increaseWinsResponse" type="tns:increaseWinsResponse"/>
+
+  <xs:element name="resetScore" type="tns:resetScore"/>
+
+  <xs:element name="resetScoreResponse" type="tns:resetScoreResponse"/>
+
+  <xs:element name="updateScore" type="tns:updateScore"/>
+
+  <xs:element name="updateScoreResponse" type="tns:updateScoreResponse"/>
+
+  <xs:complexType name="getWins">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getWinsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="updateScore">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+      <xs:element name="arg1" type="xs:int"/>
+      <xs:element name="arg2" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="updateScoreResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:score"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="score">
+    <xs:sequence>
+      <xs:element name="wins" type="xs:int"/>
+      <xs:element name="losses" type="xs:int"/>
+      <xs:element name="ties" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getScore">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getScoreResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:score"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getTies">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getTiesResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="increaseTies">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="increaseTiesResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getLosses">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getLossesResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="increaseWins">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="increaseWinsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="resetScore">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="resetScoreResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="increaseLosses">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="increaseLossesResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getWinsResponse">
+    <wsdl:part element="tns:getWinsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTiesResponse">
+    <wsdl:part element="tns:getTiesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getScore">
+    <wsdl:part element="tns:getScore" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTies">
+    <wsdl:part element="tns:getTies" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLosses">
+    <wsdl:part element="tns:getLosses" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="increaseWins">
+    <wsdl:part element="tns:increaseWins" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateScoreResponse">
+    <wsdl:part element="tns:updateScoreResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="increaseLossesResponse">
+    <wsdl:part element="tns:increaseLossesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="resetScoreResponse">
+    <wsdl:part element="tns:resetScoreResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getWins">
+    <wsdl:part element="tns:getWins" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="increaseWinsResponse">
+    <wsdl:part element="tns:increaseWinsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateScore">
+    <wsdl:part element="tns:updateScore" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="increaseTiesResponse">
+    <wsdl:part element="tns:increaseTiesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="increaseTies">
+    <wsdl:part element="tns:increaseTies" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLossesResponse">
+    <wsdl:part element="tns:getLossesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getScoreResponse">
+    <wsdl:part element="tns:getScoreResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="resetScore">
+    <wsdl:part element="tns:resetScore" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="increaseLosses">
+    <wsdl:part element="tns:increaseLosses" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ScoreService">
+    <wsdl:operation name="getWins">
+      <wsdl:input message="tns:getWins" name="getWins">
+    </wsdl:input>
+      <wsdl:output message="tns:getWinsResponse" name="getWinsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateScore">
+      <wsdl:input message="tns:updateScore" name="updateScore">
+    </wsdl:input>
+      <wsdl:output message="tns:updateScoreResponse" name="updateScoreResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getScore">
+      <wsdl:input message="tns:getScore" name="getScore">
+    </wsdl:input>
+      <wsdl:output message="tns:getScoreResponse" name="getScoreResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTies">
+      <wsdl:input message="tns:getTies" name="getTies">
+    </wsdl:input>
+      <wsdl:output message="tns:getTiesResponse" name="getTiesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="increaseTies">
+      <wsdl:input message="tns:increaseTies" name="increaseTies">
+    </wsdl:input>
+      <wsdl:output message="tns:increaseTiesResponse" name="increaseTiesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLosses">
+      <wsdl:input message="tns:getLosses" name="getLosses">
+    </wsdl:input>
+      <wsdl:output message="tns:getLossesResponse" name="getLossesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="increaseWins">
+      <wsdl:input message="tns:increaseWins" name="increaseWins">
+    </wsdl:input>
+      <wsdl:output message="tns:increaseWinsResponse" name="increaseWinsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resetScore">
+      <wsdl:input message="tns:resetScore" name="resetScore">
+    </wsdl:input>
+      <wsdl:output message="tns:resetScoreResponse" name="resetScoreResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="increaseLosses">
+      <wsdl:input message="tns:increaseLosses" name="increaseLosses">
+    </wsdl:input>
+      <wsdl:output message="tns:increaseLossesResponse" name="increaseLossesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ScoreServiceServiceSoapBinding" type="tns:ScoreService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getWins">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getWins">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getWinsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateScore">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateScore">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateScoreResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getScore">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getScore">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getScoreResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTies">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getTies">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getTiesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="increaseTies">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="increaseTies">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="increaseTiesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLosses">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getLosses">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getLossesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="increaseWins">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="increaseWins">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="increaseWinsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resetScore">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="resetScore">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="resetScoreResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="increaseLosses">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="increaseLosses">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="increaseLossesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ScoreServiceService">
+    <wsdl:port binding="tns:ScoreServiceServiceSoapBinding" name="ScoreServicePort">
+      <soap:address location="http://localhost:8080/soap-ws-example/ScoreService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
